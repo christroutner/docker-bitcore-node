@@ -1,30 +1,51 @@
-# docker-abc
-A BCH full node based on the ABC reference implementation. This repo is forked
-from [docker-abc-rpi](https://github.com/christroutner/docker-abc-rpi), which
-is the same idea but targeted for a Raspberry Pi v3 B+ minicomputer.
+# docker-bitcore-node
+This Docker container sets up
+a [Bitcore Node](https://github.com/bitpay/bitcore/tree/master/packages/bitcore-node)
+which is a REST API server that replaces Insight API. While Bitcore Node is
+compatible with multiple cryptocurrencies, this Docker container is configured
+for Bitcoin Cash (BCH).
 
-This version of that repository is modified to run directly on my computer. I
-occasionally need direct access to a full node when I travel, so installing a
-Docker container I can fire up and sync works well. I don't normally run the full
-node in the background as it takes significant resources.
+## Installation
+It's assumed that you are starting with a fresh installation of Ubuntu 18.04
+LTS on a 64-bit machine.
+It's also assumed that you are installing as
+a [non-root user with sudo privileges](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04).
 
-The blockchain is stored on an auxiliary, slower hard drive for storing such things.
-Keeping the software contained in a Docker container allows me to turn it on and
-off at my leisure.
+- Install Docker on the host system.
+[This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+shows how to install Docker on a Ubuntu 16.04 system. It's specifically targeted
+to Digital Ocean's cloud servers, but should work for any Ubuntnu system.
 
-# Installation and Usage
+- Install Docker Compose too.
+[This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04)
+shows how to do so on a Ubuntu system.
+
+- Ensure you have a fully-synced BCH full node running on the same machine with
+ports 8332 and 8333 exposed.
+This [docker-abc](https://github.com/christroutner/docker-abc) docerized
+full node will do exactly this.
+
 - Clone this repository in your home directory with the following command:
-`git clone https://github.com/christroutner/docker-abc`
+`git clone https://github.com/christroutner/docker-bitcore-node`
 
-- Build the docker container by running the build script: `./build-image.sh`
+- Build the docker container.
+`docker-compose build --no-cache`
 
-- Run the container with the run script: `./run-image.sh`
+6. Bring the container online by running the following command:
+`docker-compose up -d`
 
-- Check on the status of bitcoind as it syncs to the blockchain:
-`sudo tail /mnt/data/bitcoin.com/blockchain-data/bch-mainnet-abc-rpi/debug.log`
 
-- Or query the JSON RPC:
+## Docker Debugging
+The following commands are useful for debugging applications like this one
+inside a Docker container. The commands below help you to enter a shell
+inside the container.
 
-`curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getinfo","params":[]}' -H 'content-type:text/plain;' http://bitcoin:password@127.0.0.1:8332/`
+* `docker ps -a`
+  * Show all docker processes, including ones that are stopped.
 
-`curl --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://bitcoin:password@127.0.0.1:8332/`
+* `docker container run --name test-container --rm -it <Image ID> bash`
+  * This command will run a docker container and drop you into a bash shell.
+  All you need is the image ID.
+
+* `docker exec -it <container ID> bash`
+  * This command will let you enter a bash shell inside a running Docker container.
