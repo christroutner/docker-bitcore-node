@@ -40,6 +40,10 @@ the setting of your full node.
 6. Bring the container online by running the following command:
 `docker-compose up -d`
 
+## Usage
+The location of the MongoDB data store is specified in the `docker-compose.yml` file.
+This makes it easy to backup the data. However, be sure to shut down the docker
+containers before backing up the data, otherwise it will be fragmented and unusable later.
 
 ## Docker Debugging
 The following commands are useful for debugging applications like this one
