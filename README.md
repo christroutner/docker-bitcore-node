@@ -5,6 +5,9 @@ which is a REST API server that replaces Insight API. While Bitcore Node is
 compatible with multiple cryptocurrencies, this Docker container is configured
 for Bitcoin Cash (BCH).
 
+Details about running this container can be found on my blog:
+http://troutsblog.com/research/bitcore-node-insight-api
+
 ## Installation
 It's assumed that you are starting with a fresh installation of Ubuntu 18.04
 LTS on a 64-bit machine.
@@ -21,12 +24,15 @@ to Digital Ocean's cloud servers, but should work for any Ubuntnu system.
 shows how to do so on a Ubuntu system.
 
 - Ensure you have a fully-synced BCH full node running on the same machine with
-ports 8332 and 8333 exposed.
+ports 8332 (p2p) and 8333 (RPC) exposed.
 This [docker-abc](https://github.com/christroutner/docker-abc) docerized
 full node will do exactly this.
 
 - Clone this repository in your home directory with the following command:
 `git clone https://github.com/christroutner/docker-bitcore-node`
+
+- Customize the [bitcore.config.json](bitcore.config.json) file to reflect
+the setting of your full node.
 
 - Build the docker container.
 `docker-compose build --no-cache`
