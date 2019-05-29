@@ -24,7 +24,7 @@ to Digital Ocean's cloud servers, but should work for any Ubuntnu system.
 shows how to do so on a Ubuntu system.
 
 - Ensure you have a fully-synced BCH full node running on the same machine with
-ports 8332 (p2p) and 8333 (RPC) exposed.
+ports 8332 (RPC) and 8333 (p2p) exposed.
 This [docker-abc](https://github.com/christroutner/docker-abc) docerized
 full node will do exactly this.
 
