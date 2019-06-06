@@ -3,7 +3,7 @@ mongodb:
   ports:
     - "3503:27017"
   volumes:
-    - ./data:/data/db
+    - ../data:/data/db
   command: mongod --smallfiles --logpath=/dev/null # -- quiet
   restart: always
 
