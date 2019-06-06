@@ -14,7 +14,4 @@ bitcore-node:
     - mongodb
   ports:
     - "3003:3000"
-#    - "9229:9229"
-#  volumes:
-#    - ./theme:/home/connextcms/theme
   restart: always
