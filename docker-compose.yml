@@ -1,5 +1,6 @@
 mongodb:
   image: mongo
+  container_name: mongo-bitcore-testnet
   ports:
     - "3503:27017"
   volumes:
@@ -7,11 +8,12 @@ mongodb:
   command: mongod --smallfiles --logpath=/dev/null # -- quiet
   restart: always
 
-bitcore-node:
+bitcore-node-testnet:
   build: .
   dockerfile: Dockerfile
+  container_name: bitcore-node-testnet
   links:
     - mongodb
   ports:
-    - "3003:3000"
+    - "3004:3000"
   restart: always

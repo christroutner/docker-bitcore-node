@@ -9,17 +9,17 @@
     },
     "chains": {
       "BCH": {
-        "mainnet": {
+        "testnet": {
           "chainSource": "p2p",
           "trustedPeers": [
             {
               "host": "172.17.0.1",
-              "port": 8333
+              "port": 18333
             }
           ],
           "rpc": {
             "host": "172.17.0.1",
-            "port": 8332,
+            "port": 18332,
             "username": "bitcoin",
             "password": "password"
           }
