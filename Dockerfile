@@ -13,7 +13,7 @@ USER safeuser
 
 # Clone the Bitcore repository
 WORKDIR /home/safeuser
-RUN git clone https://github.com/bitpay/bitcore
+RUN git clone https://github.com/christroutner/bitcore
 WORKDIR /home/safeuser/bitcore
 RUN npm install
 COPY bitcore.config.json bitcore.config.json
