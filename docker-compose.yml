@@ -1,5 +1,6 @@
 mongodb:
   image: mongo
+  container_name: mongo-bitcore
   ports:
     - "3503:27017"
   volumes:
@@ -10,6 +11,7 @@ mongodb:
 bitcore-node:
   build: .
   dockerfile: Dockerfile
+  container_name: bitcore
   links:
     - mongodb
   ports:
