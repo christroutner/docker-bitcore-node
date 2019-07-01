@@ -9,10 +9,10 @@ mongodb:
   restart: always
 
 bitcore-node-testnet:
-  #build: .
-  #dockerfile: Dockerfile
-  image: bitcore-testnet
-  container_name: bitcore-node-testnet
+  build: .
+  dockerfile: Dockerfile
+  #image: bitcore-testnet
+  container_name: bitcore-testnet
   links:
     - mongodb
   ports:
