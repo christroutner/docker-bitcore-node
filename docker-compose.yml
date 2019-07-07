@@ -16,5 +16,5 @@ bitcore-node:
   links:
     - mongodb
   ports:
-    - "3003:3000"
+    - "12200:3000"
   restart: always
