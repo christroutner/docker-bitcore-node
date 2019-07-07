@@ -9,9 +9,9 @@ mongodb:
   restart: always
 
 bitcore-node:
-  #build: .
-  #dockerfile: Dockerfile
-  image: bitcore
+  build: .
+  dockerfile: Dockerfile
+  #image: bitcore
   container_name: bitcore
   links:
     - mongodb
