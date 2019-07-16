@@ -1,7 +1,8 @@
 # docker-bitcore-node
 This Docker container sets up
-a [Bitcore Node](https://github.com/bitpay/bitcore/tree/master/packages/bitcore-node)
-which is a REST API server that replaces Insight API. While Bitcore Node is
+a [Bitcore Node](https://github.com/bitpay/bitcore/tree/master/packages/bitcore-node),
+which is a blockchain indexer and REST API server that provides metadata like
+address and utxo information. While Bitcore Node is
 compatible with multiple cryptocurrencies, this Docker container is configured
 for Bitcoin Cash (BCH).
 
