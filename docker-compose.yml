@@ -1,20 +1,20 @@
 mongodb:
   image: mongo
+  container_name: mongo-bitcore
   ports:
     - "3503:27017"
   volumes:
-    - ./data:/data/db
+    - ../data:/data/db
   command: mongod --smallfiles --logpath=/dev/null # -- quiet
   restart: always
 
 bitcore-node:
   build: .
   dockerfile: Dockerfile
+  #image: bitcore
+  container_name: bitcore
   links:
     - mongodb
   ports:
-    - "3003:3000"
-#    - "9229:9229"
-#  volumes:
-#    - ./theme:/home/connextcms/theme
+    - "12200:3000"
   restart: always
