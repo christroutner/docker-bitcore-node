@@ -6,7 +6,7 @@ address and utxo information. While Bitcore Node is
 compatible with multiple cryptocurrencies, this Docker container is configured
 for Bitcoin Cash (BCH).
 
-Details about running this container can be found on my blog:
+Notes and 'gotchas' about running this container can be found on my blog:
 http://troutsblog.com/research/bitcore-node-insight-api
 
 ## Installation
@@ -15,13 +15,12 @@ LTS on a 64-bit machine.
 It's also assumed that you are installing as
 a [non-root user with sudo privileges](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04).
 
-- Install Docker on the host system.
-[This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
-shows how to install Docker on a Ubuntu 16.04 system. It's specifically targeted
-to Digital Ocean's cloud servers, but should work for any Ubuntnu system.
+- Install Docker on the host
+system. [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) shows
+how to install Docker on a Ubuntu system. It's specifically targeted to Digital
+Ocean's cloud servers, but should work for any Ubuntnu system.
 
-- Install Docker Compose too.
-[This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04)
+- Install Docker Compose too. [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
 shows how to do so on a Ubuntu system.
 
 - Ensure you have a fully-synced BCH full node running on the same machine with
