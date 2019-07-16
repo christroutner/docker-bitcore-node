@@ -29,15 +29,18 @@ This [docker-abc](https://github.com/christroutner/docker-abc) docerized
 full node will do exactly this.
 
 - Clone this repository in your home directory with the following command:
+
 `git clone https://github.com/christroutner/docker-bitcore-node`
 
 - Customize the [bitcore.config.json](bitcore.config.json) file to reflect
 the setting of your full node.
 
 - Build the docker container.
+
 `docker-compose build --no-cache`
 
-6. Bring the container online by running the following command:
+- Bring the container online by running the following command:
+
 `docker-compose up -d`
 
 ## Usage
